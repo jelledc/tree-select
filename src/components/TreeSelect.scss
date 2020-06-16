@@ -1,0 +1,79 @@
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+
+.tree-select {
+  font-family: sans-serif;
+  font-size: 16px;
+
+  &__node {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  &__indent {
+    display: inline-block;
+  }
+
+  &__expand-wrapper {
+    display: inline-block;
+    width: 1em;
+  }
+
+  &__expand,
+  &__checkbox {
+    @extend %fa-icon;
+
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1em;
+    height: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+  }
+
+  &__expand {
+    &:before {
+      @extend .fas;
+      transition: transform 100ms;
+      content: fa-content($fa-var-caret-right);
+    }
+
+    &:checked::before {
+      @extend .fas;
+      transform: rotate(90deg);
+    }
+  }
+
+  &__checkbox {
+    color: #1ea7fd;
+
+    &:before {
+      @extend .far;
+      content: fa-content($fa-var-square);
+    }
+
+    &:checked::before {
+      @extend .far;
+      content: fa-content($fa-var-check-square);
+    }
+
+    &--has-selected-children:not(:checked)::before {
+      @extend .far;
+      content: fa-content($fa-var-minus-square);
+    }
+  }
+
+  &__label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
