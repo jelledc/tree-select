@@ -5,11 +5,11 @@ const Indent: React.FC<IndentProps> = props => {
   const options = useContext(TreeSelectOptionsContext);
 
   return (
-    <span
-      className={options.classNames.indent}
-      style={{ width: `${props.width * 1}em` }}>
-      &nbsp;
-    </span>
+    <>
+      {[...Array(props.width).keys()].map(key =>
+        <span key={key} className={options.classNames.indent}>&nbsp;</span>
+      )}
+    </>
   );
 };
 
