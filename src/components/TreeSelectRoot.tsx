@@ -51,6 +51,7 @@ const TreeSelectRoot: React.FC<TreeSelectRootProps> = props => {
           key={node.id}
           id={node.id}
           label={node.label}
+          disabled={node.disabled}
           children={node.children}
           depth={0}
           selectedNodeIds={selectedNodeIds}

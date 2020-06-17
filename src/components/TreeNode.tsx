@@ -31,6 +31,7 @@ const TreeNode: React.FC<TreeNodeProps> = props => {
         <label className={options.classNames.label}>
           <input
             type="checkbox"
+            disabled={props.disabled}
             className={[
               options.classNames.checkbox,
               hasSelectedChildren(props.children, props.selectedNodeIds) && options.classNames.checkboxHasSelectedChildren
@@ -45,6 +46,7 @@ const TreeNode: React.FC<TreeNodeProps> = props => {
           key={node.id}
           id={node.id}
           label={node.label}
+          disabled={node.disabled}
           children={node.children}
           depth={props.depth + 1}
           selectedNodeIds={props.selectedNodeIds}
